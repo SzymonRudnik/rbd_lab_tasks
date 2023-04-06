@@ -1,0 +1,130 @@
+DELETE FROM address WHERE id = 1;
+DELETE FROM driver WHERE  id = 5 ;
+DROP TABLE car;
+CREATE TABLE car(
+  id serial PRIMARY KEY,
+  mark varchar(100),
+  model varchar(100),
+  CONSTRAINT model
+    FOREIGN KEY(model) REFERENCES address(id));
+
+CREATE DATABASE taxidb;
+CREATE TABLE customer(id serial PRIMARY KEY, name varchar(100),last_name varchar(100),email varchar(100), phone_number varchar(100));
+CREATE TABLE vehicle_type (id serial PRIMARY KEY, name varchar(50));
+CREATE TABLE passenger (id serial PRIMARY KEY);
+CREATE TABLE passenger_rating (id serial PRIMARY KEY, behavior int,timeliness int);
+CREATE TABLE driver_rating (id serial PRIMARY KEY, skills int,car_condition int, abidance_by_the_rules int);
+CREATE TABLE driver (id serial PRIMARY KEY, picture bytea);
+CREATE TABLE car (id serial PRIMARY KEY, mark varchar(100),model varchar(100));
+CREATE TABLE ride (id serial PRIMARY KEY,distance decimal);
+CREATE TABLE type_payment (id serial PRIMARY KEY,name varchar(50));
+CREATE TABLE payment (id serial PRIMARY KEY,value money);
+CREATE TABLE address (id serial PRIMARY KEY,street varchar(100),hause_number varchar(25),apartment_number varchar(25),zip_code varchar(25),city varchar(25),country varchar(25));
+CREATE TABLE area (id serial PRIMARY KEY, name varchar(255));
+INSERT INTO
+customer(name ,last_name,email, phone_number )
+VALUES
+('adam','nowak','a@pl','555'),
+('adagdm','nefgowak','a@efefpl','5755755'),
+('adhfham','nofggfwak','afh@pl','5242555'),
+('adhththam','nothhthtwak','ahthtt@pl','544455'),
+('adgrgrgam','nowrgrrak','agr@pl','5556666');
+
+INSERT INTO
+vehicle_type (name)
+VALUES
+('suv'),
+('suv'),
+('limusine'),
+('jeep'),
+('suv');
+
+INSERT INTO
+passenger_rating (behavior,timeliness)
+VALUES
+(4,5),
+(4,5),
+(4,5),
+(4,5),
+(4,5);
+
+INSERT INTO 
+area (name)
+VALUES
+('Wrzeszcz'),
+  ('Przymorze'),
+  ('Zaspa'),
+  ('Chełm'),
+  ('Nowy Port');
+
+  INSERT INTO 
+  driver_rating (skills,car_condition, abidance_by_the_rules)
+  VALUES
+(4,5,8),
+(4,5,7),
+(4,5,7),
+(4,5,7),
+(4,5,8);
+
+INSERT INTO 
+address (street ,hause_number ,apartment_number ,zip_code ,city ,country )
+
+VALUES
+
+('Wrzeszcz','3a','5','67-759','Gdańsk','bauifbwad'),
+  ('Przymorze','5b','6','34-245','dwadwa','wadwad'),
+  ('Zaspa','6d','7','24-543','dwadwa','wadwa'),
+  ('Chełm','8j','3','45-765','awdwad','wadwad'),
+  ('Nowy Port','8g','8','45-876','afwadwa','fwadwad');
+
+  INSERT INTO 
+  driver (picture)
+  VALUES
+('75'),
+  ('5775'),
+  ('5775'),
+  ('5775'),
+  ('755757');
+
+INSERT INTO 
+payment (value)
+
+VALUES
+
+('58'),
+  ('97'),
+  ('1642'),
+  ('087232'),
+  ('93572');
+
+  INSERT INTO 
+type_payment (name )
+
+VALUES
+
+('asdwad'),
+  ('dawdaw'),
+  ('wadwad'),
+  ('awdwad'),
+  ('awdwadwa');
+
+  INSERT INTO 
+ride (distance)
+
+VALUES
+
+('3523'),
+  ('23434'),
+  ('234234'),
+  ('42342'),
+  ('234234');
+  INSERT INTO 
+  car ( mark ,model )
+
+VALUES
+
+('dawwdad','dwadwa'),
+  ('awdwad','awdwad'),
+  ('awdwad','awdwad'),
+  ('awdwad','dwadwad'),
+  ('awdwad','awdwadwa');
