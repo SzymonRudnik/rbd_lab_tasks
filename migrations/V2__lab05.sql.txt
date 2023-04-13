@@ -1,12 +1,16 @@
-DELETE FROM address WHERE id = 1;
-DELETE FROM driver WHERE  id = 5 ;
-DROP TABLE car;
-CREATE TABLE car(
+DROP TABLE IF EXISTS passenger;
+
+CREATE TABLE ride_passenger (
   id serial PRIMARY KEY,
-  mark varchar(100),
-  model varchar(100),
-  CONSTRAINT model
-    FOREIGN KEY(model) REFERENCES address(id));
+  ride_id integer REFERENCES ride(id),
+  customer_id integer REFERENCES customer(id)
+);
+
+ALTER TABLE ride ADD COLUMN customer_id integer REFERENCES customer(id);
+
+INSERT INTO ride (distance, customer_id) VALUES (10.5, 1);
+
+DELETE FROM address;
 
 CREATE DATABASE taxidb;
 CREATE TABLE customer(id serial PRIMARY KEY, name varchar(100),last_name varchar(100),email varchar(100), phone_number varchar(100));
